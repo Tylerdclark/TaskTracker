@@ -1,0 +1,27 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@model TaskTracker.ViewModels.MissionListViewModel
+@{
+    ViewBag.Title = "MissionList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var activeMission = Model.MissionSubTasks.Count < 1 ? "active" : null;
+
+}
+
+<h2>@Model.Mission.Name</h2>
+
+@if (Model.MissionSubTasks.Count == 0)
+{
+    <text> No Mission Sub Tasks yet! </text>
+}
+else
+{
+    <ul>
+        @foreach (var missionSubTask in Model.MissionSubTasks)
+        {
+            <li>@missionSubTask.Id</li>
+        }
+    </ul>
+}
+

@@ -14,12 +14,14 @@ namespace TaskTracker
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            routes.MapMvcAttributeRoutes();
+
+            /*routes.MapRoute(
                 name: "TasksByReleaseDate",
                 url: "tasks/created/{year}/{month}",
                 defaults: new {controller = "task", action = "ByCreationDate"},
                 constraints:new {year = @"\d{4}", month = @"\d{2}"}
-            );
+            );*/
 
             routes.MapRoute(
                 name: "Default",
